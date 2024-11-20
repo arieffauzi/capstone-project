@@ -1,5 +1,3 @@
-import Sidebar from "@/component/common/sidebar/Sidebar"
-
 const Main = () => {
   return (
     <div>
