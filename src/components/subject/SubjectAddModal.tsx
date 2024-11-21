@@ -1,5 +1,5 @@
 import { Button, Form, FormProps, Input, Radio } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type FieldType = {
   name: string;
@@ -9,10 +9,11 @@ type FieldType = {
 
 interface ISubjectAddModal {
   submit: (values: any) => void;
+  editRecord?: any
 }
 
 const SubjectAddModal = (props: ISubjectAddModal) => {
-  const { submit } = props;
+  const { submit, editRecord } = props;
   const [form] = Form.useForm();
 
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
@@ -20,6 +21,13 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
     submit(values);
     // form.resetFields();
   };
+
+  useEffect(() => {
+    form.setFieldsValue(editRecord)
+  }, [editRecord])
+  
+
+  console.log('editRecord',editRecord)
 
   return (
     <div>
@@ -42,23 +50,23 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
           rules={[
             {
               required: true,
-              message: "Please fill subject name!",
+              message: "Please fill lesson!",
             },
           ]}
         >
           <Input placeholder="Lesson" />
         </Form.Item>
         <Form.Item
-          label="Post Test"
-          name={"post_test"}
+          label="Question"
+          name={"question"}
           rules={[
             {
               required: true,
-              message: "Please fill subject name!",
+              message: "Please fill question!",
             },
           ]}
         >
-          <Input placeholder="Post Test" />
+          <Input placeholder="Question" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">

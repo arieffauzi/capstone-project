@@ -2,11 +2,11 @@
 import { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-export const userQueryClient = new QueryClient();
+export const subjectQueryClient = new QueryClient();
 
 const SubjectProvider = (props: { children: ReactNode }) => {
   return (
-    <QueryClientProvider client={userQueryClient}>
+    <QueryClientProvider client={subjectQueryClient}>
       {props.children}
     </QueryClientProvider>
   );

@@ -18,12 +18,13 @@ interface Response {
   updatedAt: Date;
 }
 
-export const fetchCreateSubject = async (
+export const fetchUpdateSubject = async (
+  id: number,
   requst: Request
 ): Promise<IBaseApiResponse<Response | null>> => {
-  const url = `${process.env.NEXT_PUBLIC_BASE_API_URL}/subject`;
+  const url = `${process.env.NEXT_PUBLIC_BASE_API_URL}/subject/${id}`;
   try {
-    const { data } = await axios.post(url, requst);
+    const { data } = await axios.patch(url, requst);
     return data;
   } catch (error) {
     return apiErrorHandler(error);

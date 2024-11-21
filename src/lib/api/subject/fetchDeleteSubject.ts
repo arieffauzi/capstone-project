@@ -3,12 +3,6 @@ import { capstoneAxios } from "../axiosInterceptor";
 import { apiErrorHandler } from "../errorHandler";
 import { IBaseApiResponse } from "../interface";
 
-interface Request {
-  name: string;
-  lesson: string;
-  question: string;
-}
-
 interface Response {
   id: number;
   name: string;
@@ -18,12 +12,12 @@ interface Response {
   updatedAt: Date;
 }
 
-export const fetchCreateSubject = async (
-  requst: Request
+export const fetchDeleteSubject = async (
+  id: number
 ): Promise<IBaseApiResponse<Response | null>> => {
-  const url = `${process.env.NEXT_PUBLIC_BASE_API_URL}/subject`;
+  const url = `${process.env.NEXT_PUBLIC_BASE_API_URL}/subject/${id}`;
   try {
-    const { data } = await axios.post(url, requst);
+    const { data } = await axios.delete(url);
     return data;
   } catch (error) {
     return apiErrorHandler(error);
