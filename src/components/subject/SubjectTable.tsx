@@ -159,6 +159,14 @@ const SubjectTable = () => {
         dataSource={data?.data?.map((item, index) => {
           return { ...item, key: index };
         })}
+        pagination={{
+          defaultPageSize: 10,
+          showSizeChanger: true,
+          pageSizeOptions: ["10", "20", "50"],
+          onChange(page, size) {
+            setFilter({ ...filter, page, size });
+          },
+        }}
       />
       <Modal
         title="Edit Subject"

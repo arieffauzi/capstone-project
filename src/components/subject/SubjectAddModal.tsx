@@ -9,7 +9,7 @@ type FieldType = {
 
 interface ISubjectAddModal {
   submit: (values: any) => void;
-  editRecord?: any
+  editRecord?: any;
 }
 
 const SubjectAddModal = (props: ISubjectAddModal) => {
@@ -19,15 +19,14 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     console.log("value", values);
     submit(values);
-    // form.resetFields();
+    form.resetFields();
   };
 
   useEffect(() => {
-    form.setFieldsValue(editRecord)
-  }, [editRecord])
-  
+    form.setFieldsValue(editRecord);
+  }, [editRecord]);
 
-  console.log('editRecord',editRecord)
+  console.log("editRecord", editRecord);
 
   return (
     <div>
@@ -42,7 +41,7 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
             },
           ]}
         >
-          <Input placeholder="Subject Name" />
+          <Input autoComplete="off" placeholder="Subject Name" />
         </Form.Item>
         <Form.Item
           label="Lesson"
@@ -54,7 +53,7 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
             },
           ]}
         >
-          <Input placeholder="Lesson" />
+          <Input placeholder="Lesson" autoComplete="off" />
         </Form.Item>
         <Form.Item
           label="Question"
@@ -66,7 +65,7 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
             },
           ]}
         >
-          <Input placeholder="Question" />
+          <Input placeholder="Question" autoComplete="off" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
