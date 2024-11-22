@@ -4,7 +4,7 @@ import { useState } from "react";
 import { fetchCreateSubject } from "@/lib/api/subject/fetchCreateSubject";
 import { subjectQueryClient } from "./SubjectProvider";
 
-const ButtonAddModal = () => {
+const ButtonAddSubject = () => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
@@ -13,7 +13,6 @@ const ButtonAddModal = () => {
   };
 
   const handleCancel = () => {
-    console.log("Clicked cancel button");
     setOpen(false);
   };
 
@@ -26,7 +25,6 @@ const ButtonAddModal = () => {
   };
 
   const handleSubmit = async (values: any) => {
-    console.log("masuk");
     const result = await fetchCreateSubject(values);
 
     if (result.statusCode == 200) {
@@ -57,4 +55,4 @@ const ButtonAddModal = () => {
   );
 };
 
-export default ButtonAddModal;
+export default ButtonAddSubject;

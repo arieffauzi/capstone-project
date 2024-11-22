@@ -10,13 +10,13 @@ import {
 } from "antd";
 import { Input } from "antd";
 import Search from "antd/es/input/Search";
-import ButtonAddModal from "./ButtonAddModal";
 import { useQuery } from "react-query";
 import { useState } from "react";
 import { Subject, fetchSubjectList } from "@/lib/api/subject/fetchSubjectList";
 import SubjectAddModal from "./SubjectAddModal";
 import { fetchUpdateSubject } from "@/lib/api/subject/fetchUpdateSubject";
 import { fetchDeleteSubject } from "@/lib/api/subject/fetchDeleteSubject";
+import ButtonAddSubject from "./ButtonAddSubject";
 
 type SearchProps = GetProps<typeof Input.Search>;
 
@@ -78,8 +78,6 @@ const SubjectTable = () => {
   const cancel: PopconfirmProps["onCancel"] = (e) => {
     console.log(e);
   };
-
-  console.log("data", data);
 
   const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
     console.log(info?.source, value);
@@ -152,7 +150,7 @@ const SubjectTable = () => {
             width={25}
           />
         </div>
-        <ButtonAddModal />
+        <ButtonAddSubject />
       </div>
       <Table
         columns={columns}

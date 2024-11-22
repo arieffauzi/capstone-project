@@ -12,7 +12,6 @@ const Login = () => {
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     router.push('/main')
-    console.log("Success:", values);
   };
 
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (

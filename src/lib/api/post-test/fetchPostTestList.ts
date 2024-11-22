@@ -21,6 +21,15 @@ export interface PostTest {
   updatedAt: Date;
 }
 
+interface Users {
+  id: 1;
+  name: string;
+  username: string;
+  role_id: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export const fetchPostTestList = async (
   requst: Request
 ): Promise<IBaseApiResponse<PostTest[] | null>> => {

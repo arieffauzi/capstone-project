@@ -17,7 +17,6 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
   const [form] = Form.useForm();
 
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
-    console.log("value", values);
     submit(values);
     form.resetFields();
   };
@@ -25,8 +24,6 @@ const SubjectAddModal = (props: ISubjectAddModal) => {
   useEffect(() => {
     form.setFieldsValue(editRecord);
   }, [editRecord]);
-
-  console.log("editRecord", editRecord);
 
   return (
     <div>

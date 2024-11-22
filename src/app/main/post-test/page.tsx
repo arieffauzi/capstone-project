@@ -6,7 +6,7 @@ const PostTest = () => {
   return (
     <Card>
       <PostTestProvider>
-        <h1 className="text-3xl font-semibold mb-4">Pelajaran</h1>
+        <h1 className="text-3xl font-semibold mb-4">Post Test</h1>
         <PostTestTable />
       </PostTestProvider>
     </Card>
